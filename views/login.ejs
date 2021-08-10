@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs') %>
+    <div class="register">
+        <div class="area-form">
+            <% if(error != false) { %>
+                <div class="error">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
+            <div class="infos-form">
+                <h1>Login</h1>
+                <form action="/user/login" method="post">
+                    <input type="email" name="email" placeholder="Email"><br>
+                    <input type="password" name="password" placeholder="Senha"><br>
+                    <button type="submit">Entrar</button><br>
+                    <hr>
+                </form>
+                <p>Não possui conta?</p>
+                <p><a href="/admin/register">Registre-se</a></p>
+            </div>
+        </div>
+        <div class="area-bg-register">
+            <div class="logo-register">
+                <img src="/images/logo01.png" alt="" srcset="">
+            </div>
+            <img src="/images/pablita-finance.png" alt="Pessoas falando" id="image-register">
+        </div>
+    </div>
+
+    <!-- Illustration by <a href="https://icons8.com/illustrations/author/5bf673a26205ee0017636674">Anna Golde</a> from <a href="https://icons8.com/illustrations">Ouch!</a> -->
+</body>
+</html>
