@@ -1,8 +1,13 @@
 const express = require('express')
+const Article = require('../models/Article')
+const Category = require('../models/Category')
 
 module.exports = {
     async index(req, res){
-        res.render('index')
+        const articles = await Article.findAll()
+        const categories = await Category.findAll()
+
+        res.render('index', {articles: articles, categories: categories})
     },
 
     async login(req, res){

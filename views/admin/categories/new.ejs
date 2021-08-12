@@ -1,0 +1,30 @@
+<%- include('../../partials/header.ejs') %>
+    <div class="container">
+        <header>
+            <div class="area-hamburguer">
+                <div class="hamburguer"></div>
+            </div>
+            <div class="logo-header">
+                <img src="/images/logo01.png" alt="" srcset="">
+            </div>
+            <ul class="navbarAdmin">
+                <li><a href="/admin/home">Artigos</a></li>
+                <li><a href="/admin/categories">Categorias</a></li>
+                <li><a href="#news">Sair</a></li>
+            </ul>
+        </header>
+
+        <main class="main-articles">
+            <div class="title-main-articles">
+                <h1>Cadastro de Artigo</h1>
+            </div>
+            <form class="category-form" action="/category/save" method="post">
+                <input type="text" name="title" placeholder="Título da categoria">
+                <button type="submit">Confirmar</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="/js/showNavAdmin.js"></script>
+</body>
+</html>

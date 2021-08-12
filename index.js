@@ -31,5 +31,7 @@ app.use(routes)
 
 // Importing models
 const User = require('./models/User')
+const Category = require('./models/Category')
+const Article = require('./models/Article')
 
 app.listen(3000, () => console.log('Server is running...'))

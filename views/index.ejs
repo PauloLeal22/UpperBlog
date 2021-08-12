@@ -13,16 +13,9 @@
                     <div class="dropdown">
                         <button class="dropbtn"><p>Categorias <i id="iconButton" class="fa fa-sort-down" style="font-size:24px"></i></p></button>
                     <div class="dropdown-content">
-                        <a href="">Desenvolvimento Web</a>
-                        <a href="">Desenvolvimento Mobile</a>
-                        <a href="">Front-end</a>
-                        <a href="">Back-end</a>
-                        <a href="">JavaScript</a>
-                        <a href="">Banco de Dados</a>
-                        <a href="">PHP</a>
-                        <a href="">Python</a>
-                        <a href="">Java</a>
-                        <a href="">C, C++ e C#</a>
+                        <% categories.forEach(category => { %>
+                            <a href=""> <%= category.title %></a>
+                        <% }) %>
                     </div>
                 </li> 
                 <li><a href="#news">Sobre</a></li>
@@ -69,85 +62,32 @@
         <main class="latest">
             <section class="articles">
                 <h1>Últimos Artigos</h1>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="/images/vue.jpeg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Vue.js e sua simplicidade</h1>
-                        <p>Conheça o framework front-end considerado por muitos o mais simples e prático!</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
+                <% articles.forEach(article => { %>
+                    <article class="card-article">
+                        <div class="img-card-article">
+                            <img src="<%= article.image %>" alt="">
                         </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
+                        <div class="infos-card-article">
+                            <h1><%= article.title %></h1>
+                            <p><%= article.resume %></p>
+                            <div class="date-card-article">
+                                <i class="fa fa-clock-o" style="font-size:20px"></i>
+                                <p>27/07/2021</p>
+                            </div>
+                            <div class="button-card-article">
+                                <a href="">Continuar leitura</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="/images/react.jpg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>A popularidade do React.js</h1>
-                        <p>Destacamos vários fatores que influenciam na popularidade desse framework front-end.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="/images/angular.jpg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Angular, o mais robusto</h1>
-                        <p>Angular é o framework front-end mais robusto no mercado? Venha conferir.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="/images/node.png" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Porque utilizar Node.js?</h1>
-                        <p>Nesse artigo apresentamos alguns motivos para que o node.js seja a sua primeira escolha.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                <% }) %>
             </section>
             <aside class="recommended">
                 <h1>Categorias</h1>
-                <ul><a href=""></a>
-                    <li><a href="">Desenvolvimento Web</a></li>
-                    <li><a href="">Desenvolvimento Mobile</a></li>
-                    <li><a href="">Front-end</a></li>
-                    <li><a href="">Back-end</a></li>
-                    <li><a href="">JavaScript</a></li>
-                    <li><a href="">Banco de Dados</a></li>
-                    <li><a href="">PHP</a></li>
-                    <li><a href="">Python</a></li>
-                    <li><a href="">Java</a></li>
-                    <li><a href="">C, C++ e C#</a></li>
-                </ul>
+                <ul>
+                    <% categories.forEach(category => { %>
+                        <li><a href=""> <%= category.title %></a></li>
+                    <% }) %>
+                </ul>                
             </aside>
         </main>
         <div class="pagination">

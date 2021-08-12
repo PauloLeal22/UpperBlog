@@ -520,8 +520,27 @@ footer{
     margin: auto;
 }
 
+.title-main-articles, .title-main-categories{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.title-main-articles a, .title-main-categories a{
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    background-color: #4BD16F;
+}
+
+.title-main-articles a:hover, .title-main-categories a:hover{
+    background-color: #34e263;
+}
+
 .main-articles .table-articles, .main-categories .table-categories{
     width: 100%;
+    margin-bottom: 30px;
     border-collapse: collapse;
 }
 
@@ -551,7 +570,7 @@ footer{
 }
 
 .main-articles .table-articles .td-exc a, .main-categories .table-categories .td-exc a{
-    padding: 10px;
+    padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 16px;
@@ -577,6 +596,43 @@ footer{
 
 .main-articles .table-articles .td-exc button:hover, .main-categories .table-categories .td-exc button:hover{
     background-color: #ff3324;
+}
+
+.article-form{
+    margin-bottom: 50px;
+}
+
+.article-form input, .article-form select, .category-form input{
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+.article-form button{
+    width: 25%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 75%;
+    background-color: #4BD16F;
+}
+
+.category-form button{
+    width: 25%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4BD16F;
+}
+
+.article-form button:hover{
+    background-color: #34e263;
 }
 
 @media (max-width: 700px){
@@ -831,5 +887,10 @@ footer{
 
     .main-articles .table-articles, .main-categories .table-categories{
         width: 90%;
+    }
+
+    .article-form button, .category-form button{
+        width: 100%;
+        margin-left: 0;
     }
 }
