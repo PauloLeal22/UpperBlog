@@ -16,10 +16,11 @@
 
         <main class="main-articles">
             <div class="title-main-articles">
-                <h1>Cadastro de Categoria</h1>
+                <h1>Edição de Categoria</h1>
             </div>
-            <form class="category-form" action="/category/save" method="post">
-                <input type="text" name="title" placeholder="Título da categoria">
+            <form class="category-form" action="/category/edit" method="post">
+                <input type="hidden" name="id" value="<%= category.id %>">
+                <input type="text" name="title" value="<%= category.title %>">
                 <button type="submit">Confirmar</button>
             </form>
         </main>

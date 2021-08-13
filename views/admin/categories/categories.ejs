@@ -35,10 +35,10 @@
                             <td><%= category.title %></td>
                             <td><%= category.slug %></td>
                             <td class="td-exc">
-                                <a href=""><i class="fa fa-edit" style="font-size:24px"></i></a>
+                                <a href="/category/edit/<%= category.id %>"><i class="fa fa-edit" style="font-size:24px"></i></a>
 
-                                <form action="" method="post">
-                                    <input type="hidden" name="" id="">
+                                <form action="/category/delete" method="post">
+                                    <input type="hidden" name="id" value="<%= category.id %>">
                                     <button type="submit"><i class="fa fa-trash" style="font-size:24px"></i></button>
                                 </form>
                             </td>

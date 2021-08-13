@@ -26,6 +26,44 @@ module.exports = {
             console.log(error)
             res.redirect('/admin/categories')
         }
-       
+    },
+
+    async delete(req, res){
+        const id = req.body.id
+
+        await Category.destroy({
+            where: {
+                id: id
+            }
+        })
+
+        res.redirect('/admin/categories')
+    },
+
+    async showFormEdit(req, res){
+        const id = req.params.id
+
+        const category = await Category.findOne({
+            where: {
+                id: id
+            }
+        })
+
+        res.render('admin/categories/edit', {category: category})
+    },
+
+    async update(req, res){
+        const {id, title} = req.body
+
+        await Category.update({
+            title: title,
+            slug: slugify(title)
+        }, {
+            where: {
+                id: id
+            }
+        })
+
+        res.redirect('/admin/categories')
     }
 }

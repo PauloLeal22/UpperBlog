@@ -22,6 +22,10 @@ const Article = connection.define('articles', {
     image: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    date: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
 

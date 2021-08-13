@@ -1,0 +1,52 @@
+<%- include('../../partials/header.ejs') %>
+    <div class="container">
+        <header>
+            <div class="area-hamburguer">
+                <div class="hamburguer"></div>
+            </div>
+            <div class="logo-header">
+                <img src="/images/logo01.png" alt="" srcset="">
+            </div>
+            <ul class="navbarAdmin">
+                <li><a href="/admin/home">Artigos</a></li>
+                <li><a href="/admin/categories">Categorias</a></li>
+                <li><a href="#news">Sair</a></li>
+            </ul>
+        </header>
+
+        <main class="main-articles">
+            <div class="title-main-articles">
+                <h1>Edição de Artigo</h1>
+            </div>
+            <form class="article-form" action="/article/edit" method="post">
+                <input type="hidden" name="id" value="<%= article.id %>">
+                <input type="text" name="title" value="<%= article.title %>"> <br>
+                <input type="text" name="resume" value="<%= article.resume %>"> <br>
+                <textarea name="body" id="article" cols="30" rows="20" value="<%- article.body %>"></textarea><br>
+                <input type="text" name="image" value="<%= article.image %>">
+                <label for="category">Categoria</label> <br>
+                <select name="category">
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                    <% }) %>
+                </select>
+                <button type="submit">Confirmar</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="/js/showNavAdmin.js"></script>
+
+    <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+            language: 'pt_BR',
+            selector: "#article",
+            plugins: [
+                'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+            ]
+        })
+    </script>
+</body>
+</html>

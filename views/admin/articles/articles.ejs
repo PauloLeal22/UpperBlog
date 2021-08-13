@@ -35,12 +35,12 @@
                             <td> <%= article.id %> </td>
                             <td> <%= article.title %> </td>
                             <td> <%= article.category.title %> </td>
-                            <td> <%= article.createdAt %> </td>
+                            <td> <%= article.date %> </td>
                             <td class="td-exc">
-                                <a href=""><i class="fa fa-edit" style="font-size:24px"></i></a>
+                                <a href="/article/edit/<%= article.id %>"><i class="fa fa-edit" style="font-size:24px"></i></a>
 
-                                <form action="" method="post">
-                                    <input type="hidden" name="" id="">
+                                <form action="/article/delete" method="post">
+                                    <input type="hidden" name="id" value="<%= article.id %>">
                                     <button type="submit"><i class="fa fa-trash" style="font-size:24px"></i></button>
                                 </form>
                             </td>
