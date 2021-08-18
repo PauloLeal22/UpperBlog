@@ -14,7 +14,7 @@
                         <button class="dropbtn"><p>Categorias <i id="iconButton" class="fa fa-sort-down" style="font-size:24px"></i></p></button>
                     <div class="dropdown-content">
                         <% categories.forEach(category => { %>
-                            <a href=""> <%= category.title %></a>
+                            <a href="/category/<%= category.slug %>"> <%= category.title %></a>
                         <% }) %>
                     </div>
                 </li> 
@@ -85,15 +85,19 @@
                 <h1>Categorias</h1>
                 <ul>
                     <% categories.forEach(category => { %>
-                        <li><a href=""> <%= category.title %></a></li>
+                        <li><a href="/category/<%= category.slug %>"> <%= category.title %></a></li>
                     <% }) %>
                 </ul>                
             </aside>
         </main>
         <div class="pagination">
-            <a href="index.html"> << Anterior</a>
-            <a href="page.html"> Próximo >></a>
+            <a href="/articles/page/2"> Próximos >></a>
         </div>
-        <footer></footer>
+        <footer>
+            <p>Blog desenvolvido por <span>Paulo Henrique Leal</span></p>
+            <a href="https://www.linkedin.com/in/paulo-henrique-leal/" target="_blank"><img src="/images/linkedin.png" alt="Linkedin"></a>
+            <a href="https://api.whatsapp.com/send?phone=5511963164212" target="_blank"><img src="/images/whatsapp.png" alt="Whatsapp"></a>
+            <a href="mailto:devpauloleal@gmail.com" target="_blank"><img src="/images/gmail.png" alt="Gmail"></a>
+        </footer>
     </div>
 <%- include('partials/footer.ejs') %>

@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
 module.exports = {
+    // Register the new user
     async store(req, res){
         const {name, lastName, email, password, confirmPassword} = req.body
 
@@ -49,6 +50,7 @@ module.exports = {
         }
     },
 
+    // Route for login user
     async login(req, res){
         const {email, password} = req.body
 
@@ -82,7 +84,10 @@ module.exports = {
         
     },
 
-    async adminHome(req, res){
-        res.send('Hello world')
+    // Route for logout user
+    async logout(req, res){
+        req.session.user = undefined
+
+        res.redirect('/admin/login')
     }
 }

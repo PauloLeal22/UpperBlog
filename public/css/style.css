@@ -497,12 +497,6 @@ header{
     margin-top: -100px;
 }
 
-footer{
-    width: 100%;
-    height: 300px;
-    background-color: #1a1a1a;
-}
-
 .navbarAdmin {
     width: 50%;
     height: 20%;
@@ -652,6 +646,60 @@ footer{
 
 .article-form button:hover{
     background-color: #34e263;
+}
+
+.creator{
+    width: 63%;
+    height: 170px;
+    margin: 30px 0px 30px 5%;
+    padding: 10px 0px;
+    display: flex;
+    border-top: solid 1px rgb(153, 153, 153);
+}
+
+.creator .img-creator{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 10px;
+    background-color: #268afc;
+}
+
+.creator .img-creator img{
+    width: 100%;
+    height: 100%;
+}
+
+.creator .infos-creator{
+    width: 80%;
+    height: 100%;
+    padding-left: 20px;
+}
+
+footer{
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    padding-top: 30px;
+    background-color: #1a1a1a;
+}
+
+footer p{
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+footer span{
+    color: #34e263;
+}
+
+footer img{
+    margin: 0 10px;
+}
+
+footer img:hover{
+    border-bottom: solid 3px #4BD16F;
 }
 
 @media (max-width: 700px){
@@ -920,5 +968,37 @@ footer{
     .read-article img{
         max-width: 100%;
         max-height: 200px;
+    }
+
+    .creator{
+        width: 90%;
+        height: 200px;
+        margin: 30px 0px 30px 5%;
+        padding: 10px 0px;
+        display: flex;
+        border-top: solid 1px rgb(153, 153, 153);
+    }
+    
+    .creator .img-creator{
+        width: 100px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+    
+    .creator .img-creator img{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .creator .infos-creator{
+        width: 80%;
+        height: 100%;
+        padding-left: 20px;
+    }
+
+    .creator .infos-creator h1{
+        font-size: 26px;
     }
 }

@@ -1,41 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>UpperBlog</title>
-</head>
-<body>
+<%- include('partials/header.ejs') %>
     <div class="container">
         <header>
             <div class="area-hamburguer">
                 <div class="hamburguer"></div>
             </div>
             <div class="logo-header">
-                <img src="public/images/logo01.png" alt="" srcset="">
+                <img src="/images/logo01.png" alt="" srcset="">
             </div>
             <ul class="navbar">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="/">Inicio</a></li>
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn"><p>Categorias <i id="iconButton" class="fa fa-sort-down" style="font-size:24px"></i></p></button>
                     <div class="dropdown-content">
-                        <a href="">Desenvolvimento Web</a>
-                        <a href="">Desenvolvimento Mobile</a>
-                        <a href="">Front-end</a>
-                        <a href="">Back-end</a>
-                        <a href="">JavaScript</a>
-                        <a href="">Banco de Dados</a>
-                        <a href="">PHP</a>
-                        <a href="">Python</a>
-                        <a href="">Java</a>
-                        <a href="">C, C++ e C#</a>
+                        <% categories.forEach(category => { %>
+                            <a href="/category/<%= category.slug %>"> <%= category.title %></a>
+                        <% }) %>
                     </div>
                 </li> 
                 <li><a href="#news">Sobre</a></li>
@@ -45,71 +25,25 @@
 
         <main class="latest">
             <section class="articles">
-                <h1>Página 02</h1>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="public/images/vue.jpeg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Vue.js e sua simplicidade</h1>
-                        <p>Conheça o framework front-end considerado por muitos o mais simples e prático!</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
+                <h1>Página <%= result.page %></h1>
+                <% result.articles.rows.forEach(article => { %>
+                    <article class="card-article">
+                        <div class="img-card-article">
+                            <img src="<%= article.image %>" alt="">
                         </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
+                        <div class="infos-card-article">
+                            <h1><%= article.title %></h1>
+                            <p><%= article.resume %></p>
+                            <div class="date-card-article">
+                                <i class="fa fa-clock-o" style="font-size:20px"></i>
+                                <p><%= article.date %></p>
+                            </div>
+                            <div class="button-card-article">
+                                <a href="/<%=article.slug%>">Continuar leitura</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="public/images/react.jpg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>A popularidade do React.js</h1>
-                        <p>Destacamos vários fatores que influenciam na popularidade desse framework front-end.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="public/images/angular.jpg" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Angular, o mais robusto</h1>
-                        <p>Angular é o framework front-end mais robusto no mercado? Venha conferir.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
-                <article class="card-article">
-                    <div class="img-card-article">
-                        <img src="public/images/node.png" alt="">
-                    </div>
-                    <div class="infos-card-article">
-                        <h1>Porque utilizar Node.js?</h1>
-                        <p>Nesse artigo apresentamos alguns motivos para que o node.js seja a sua primeira escolha.</p>
-                        <div class="date-card-article">
-                            <i class="fa fa-clock-o" style="font-size:20px"></i>
-                            <p>27/07/2021</p>
-                        </div>
-                        <div class="button-card-article">
-                            <a href="">Continuar leitura</a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                <% }) %>
             </section>
             <aside class="recommended">
                 <h1>Categorias</h1>
@@ -128,12 +62,22 @@
             </aside>
         </main>
         <div class="pagination">
-            <a href=""> << Anterior</a>
-            <a href=""> Próximo >></a>
-        </div>
-        <footer></footer>
-    </div>
+            <% if(result.page > 2){ %>
+                <a href="/articles/page/<%= result.page - 1 %>"> << Anterior</a>
+            <% }else if(result.page == 2){ %>
+                <a href="/"> << Anterior</a>
+            <% } %>
 
-    <script src="public/js/showNav.js"></script>
-</body>
-</html>
+            <% if(result.next){ %>
+                <a href="/articles/page/<%= result.page + 1 %>"> Próximo >></a>
+            <% } %>
+        </div>
+
+        <footer>
+            <p>Blog desenvolvido por <span>Paulo Henrique Leal</span></p>
+            <a href="https://www.linkedin.com/in/paulo-henrique-leal/" target="_blank"><img src="/images/linkedin.png" alt="Linkedin"></a>
+            <a href="https://api.whatsapp.com/send?phone=5511963164212" target="_blank"><img src="/images/whatsapp.png" alt="Whatsapp"></a>
+            <a href="mailto:devpauloleal@gmail.com" target="_blank"><img src="/images/gmail.png" alt="Gmail"></a>
+        </footer>
+    </div>
+ <%- include('partials/footer.ejs') %>
